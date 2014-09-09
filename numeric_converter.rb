@@ -68,28 +68,31 @@ module NumericConverter
 
   def self.convert_pair(pair)
     pair = pair.to_i
+    str_pair = pair.to_s
 
     return NUMS[pair] if pair < 20
 
-    out = TENS[pair.to_s[0].to_i]
-    out += " " + NUMS[pair.to_s[1].to_i] unless pair.to_s[1].to_i == 0
+    out = TENS[str_pair[0].to_i]
+    out += " " + NUMS[str_pair[1].to_i] unless str_pair[1].to_i == 0
     out
   end
 
   def self.convert_triplet(triplet)
     triplet = triplet.to_i
+    str_triplet = triplet.to_s
 
-    return convert_pair(triplet) if triplet.to_s.length < 3
+    return convert_pair(triplet) if str_triplet.length < 3
 
-    "#{NUMS[triplet.to_s[0].to_i]} hundred #{convert_pair(triplet.to_s[1..2])}"
+    "#{NUMS[str_triplet[0].to_i]} hundred #{convert_pair(str_triplet[1..2])}"
   end
 
   def self.convert(n)
     n = n.to_i
+    str_n = n.to_s
 
     raise ArgumentError, ERRORS[:negative] if n < 0
 
-    raise ArgumentError, ERRORS[:too_large] unless MAGNITUDES.has_key? n.to_s.length / 3
+    raise ArgumentError, ERRORS[:too_large] unless MAGNITUDES.has_key? str_n.length / 3
 
     groups = group n
 
