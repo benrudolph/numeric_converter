@@ -71,7 +71,9 @@ module NumericConverter
 
     return NUMS[pair] if pair < 20
 
-    "#{TENS[pair.to_s[0].to_i]} #{NUMS[pair.to_s[1].to_i]}"
+    out = TENS[pair.to_s[0].to_i]
+    out += " " + NUMS[pair.to_s[1].to_i] unless pair.to_s[1].to_i == 0
+    out
   end
 
   def self.convert_triplet(triplet)

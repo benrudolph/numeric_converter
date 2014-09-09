@@ -14,6 +14,16 @@ describe NumericConverter, '#convert' do
     expect(out).to eq('thirteen')
   end
 
+  it 'should return correct number for 80' do
+    out = NumericConverter.convert '80'
+    expect(out).to eq('eighty')
+  end
+
+  it 'should return correct number for 1880' do
+    out = NumericConverter.convert '1880'
+    expect(out).to eq('one thousand eight hundred eighty')
+  end
+
   it 'should return correct number for a 234' do
     out = NumericConverter.convert '234'
     expect(out).to eq('two hundred thirty four')
