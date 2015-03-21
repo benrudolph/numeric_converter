@@ -4,3 +4,4 @@ Converts digits to their numerical form
 
 tes
 ae
+s
