@@ -5,3 +5,4 @@ Converts digits to their numerical form
 tes
 
 s
+s
